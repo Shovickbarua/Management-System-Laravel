@@ -21,10 +21,10 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('username')->unique();
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
+            $table->string('roleId');
+            $table->string('email_verified_at')->nullable();
             $table->boolean('status')->comment('0 => Inactive, 1=> Active, 2=> Pending, 3=> Block ');
             $table->string('password');
-            $table->rememberToken();
             $table->timestamps();
         });
         DB::table('users')->insert([

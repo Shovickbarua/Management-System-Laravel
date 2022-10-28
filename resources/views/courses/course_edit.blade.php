@@ -8,7 +8,7 @@
               <div class="form-row">
                   <div class="form-group col-md-4">
                     <label for="name">Course<font style="color:red">*</font></label>
-                    <input type="text" class="form-control" id="" placeholder="Name" name="course_name" value="{{('$course_data->course_name')}}">
+                    <input type="text" class="form-control" id="" placeholder="Name" name="course_name" value="{{$course_data->course_name}}">
                   </div>
                   <div class="form-group col-md-4">
                     <label for="group_id">Select Department</label>
@@ -21,7 +21,7 @@
                   </div>
                   <div class="form-group col-md-4">
                     <label for="code">Course Code<font style="color:red">*</font></label>
-                    <input type="text" class="form-control" id="course_code" placeholder="Course Code" name="course_code" value="{{('$course_data->course_code')}}">
+                    <input type="text" class="form-control" id="course_code" placeholder="Course Code" name="course_code" value="{{$course_data->course_code}}">
                   </div>
                  
                 <div class="form-group col-md-12">

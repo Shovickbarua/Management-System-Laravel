@@ -25,14 +25,16 @@
 								<td>{{$loop->iteration}}</td>
 								<td>{{$semester->sem_name}}</td>
 								<td>
-                                    <a href="{{route('semester.edit', $semester->id)}}" class="btn shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
+									<div class="d-flex">
+										<a href="{{route('semester.edit', $semester->id)}}" class="btn shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
 
-                                    <form action="{{route('semester.destroy',$semester->id)}}" method="POST">
-                                    @method('DELETE')    
-                                    @csrf
-                                    <button type="submit" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></button>
-                                    </form>
-                                </td>
+										<form action="{{route('semester.destroy',$semester->id)}}" method="POST">
+										@method('DELETE')    
+										@csrf
+										<button type="submit" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></button>
+										</form>
+									</div>
+                                </td>	
 							</tr>
 							@endforeach
 						  </tbody>

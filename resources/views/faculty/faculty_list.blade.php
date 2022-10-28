@@ -28,8 +28,8 @@
 									<td>{{$faculty->faculty_name}}</td>
 									<td>{{$faculty->dep_name}}</td>
 									<td>
-                                    <img src="{{Storage::url('app/faculties/'. $faculty->image)}}"/>
-                                </td>
+                                    	<img src="{{Storage::url('app/faculties/'. $faculty->image)}}" style="height:150px;"/>
+                                	</td>
 								</tr>
 							@endforeach
 						  </tbody>

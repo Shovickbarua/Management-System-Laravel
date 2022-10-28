@@ -9,6 +9,9 @@ use App\Http\Controllers\SemesterController;
 use App\Http\Controllers\YearController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\FacultyController;
+use App\Http\Controllers\ViewStudentController;
+use App\Http\Controllers\ResultController;
+use App\Http\Controllers\MarkController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,8 +30,14 @@ Route::get('/', function () {
 */
 
 Route::get('/',[Authentication::class,'index']);
+Route::post('/sign',[Authentication::class,'signIn'])->name('signin');
+Route::get('/signIn',[Authentication::class,'index'])->name('signinform');
+Route::get('/logout',[Authentication::class,'signOut'])->name('logOut');
+
 
 Route::resource('/student',StudentController::class);
+
+//Route::get('/view_student/{id}',[StudentController::class,'viewshow'])->name('student_des');
 
 Route::resource('/course',CourseController::class);
 
@@ -41,3 +50,14 @@ Route::resource('/department',DepartmentController::class);
 Route::resource('/semester',SemesterController::class);
 
 Route::resource('/faculty',FacultyController::class);
+
+Route::resource('/addMarks',MarkController::class);
+Route::get('/getcourses/{id}',[MarkController::class,'getcourses'])->name('getcourses');
+Route::get('/getData/{id}',[MarkController::class,'getData'])->name('getData');
+
+Route::resource('/result',ResultController::class);
+Route::get('/student_view/{stu_id}',[ResultController::class,'view_result'])->name('student_view');
+Route::get('/view_result/{stu_id}',[ResultController::class,'stu_show'])->name('view_result');
+
+Route::get('/view_student/{id}',[ViewStudentController::class,'viewstu'])->name('student_des');
+Route::get('/student_info/{id}',[ViewStudentController::class,'downloadpdf']);

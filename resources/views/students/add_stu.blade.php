@@ -26,8 +26,8 @@
                     <input type="email" class="form-control" id="email" name="email">
                   </div>
                   <div class="form-group col-md-4">
-                    <label for="adress">Address<font style="color:red">*</font></label>
-                    <textarea class="form-control" id="adress" name="address" rows="2"></textarea>
+                    <label for="address">Address<font style="color:red">*</font></label>
+                    <textarea class="form-control" id="address" name="address" rows="2"></textarea>
                   </div>
                   <div class="form-group col-md-4">
                     <label for="gender">Select Gender<font style="color:red">*</font></label>

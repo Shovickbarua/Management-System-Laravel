@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
-class Programs extends Migration
+class Exams extends Migration
 {
     /**
      * Run the migrations.
@@ -15,25 +15,22 @@ class Programs extends Migration
      */
     public function up()
     {
-        Schema::create('programs', function (Blueprint $table) {
+        Schema::create('exams', function (Blueprint $table) {
             $table->id();
-            $table->string('shift_name')->default('');
+            $table->string('exam_name')->default('');
             $table->timestamps();
         });
 
-        DB::table('programs')->insert([
+        DB::table('exams')->insert([
             [
-            'shift_name'      => 'Undergraduate',
+            'exam_name'      => 'Semester Final',
             'created_at'    =>  Carbon::now()
             ], 
             [
-            'shift_name'      => 'Postgraduate',
+            'exam_name'      => 'Midterm',
             'created_at'    =>  Carbon::now()
             ],
-            [
-            'shift_name'      => 'Diploma',
-            'created_at'    =>  Carbon::now()
-            ], 
+           
         ]);
     }
 

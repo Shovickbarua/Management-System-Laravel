@@ -90,7 +90,7 @@ class CourseController extends Controller
      * @param  \App\Models\Course  $course
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Course $course, $id)
+    public function update(Request $request, $id)
     {
         $course =  Course::find($id);
         $course->course_name = $request->course_name;

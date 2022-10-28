@@ -47,9 +47,9 @@ class StudentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request )
     {
-        $request->validate(
+      /*  $request->validate(
             [
                 'name'      => 'required',
                 'fName'     => 'required',
@@ -66,9 +66,38 @@ class StudentController extends Controller
                 'image'     => 'required|mimes:jpg,jpeg,png'
             ],
             
-        );
-        
+        ); */
 
+        $student = Student::orderBy('id','DESC')->first();
+        if ($student == null) {
+    		$firstReg = 0;
+    		$studentId = $firstReg+1;
+    		if ($studentId < 10) {
+    			$id_no = '000'.$studentId;
+    		}elseif ($studentId < 100) {
+    			$id_no = '00'.$studentId;
+    		}elseif ($studentId < 1000) {
+    			$id_no = '0'.$studentId;
+    		}
+    	}else{
+        $student = Student::orderBy('id','DESC')->first()->id;
+     	$studentId = $student+1;
+     	if ($studentId < 10) {
+    			$id_no = '000'.$studentId;
+    		}elseif ($studentId < 100) {
+    			$id_no = '00'.$studentId;
+    		}elseif ($studentId < 1000) {
+    			$id_no = '0'.$studentId;
+    		}
+
+    	} // end else 
+        
+            $years = Year::where('years.id','LIKE','%'.$request->year_id.'%')
+                    ->pluck('year_name')
+                    ->first();
+        $final_id_no = $years.$id_no;
+       // echo $final_id_no;die;
+        
         $student = new Student();
         if($request->has('image')){
            // dd($request);
@@ -92,6 +121,8 @@ class StudentController extends Controller
         $student->shift_id =$request->shift_id;
         $student->year_id =$request->year_id;
         $student->dep_id =$request->dep_id;
+        $student ->stu_id=$final_id_no;
+        
         $student->save();
         return redirect(route('student.index'));
     
@@ -104,9 +135,10 @@ class StudentController extends Controller
      * @param  \App\Models\student  $student
      * @return \Illuminate\Http\Response
      */
-    public function show(student $student)
+    public function viewshow($id)
     {
-        //
+        $student_data= Student::findOrFail($id);
+        return view('students.viewstudent',compact('student_data'));
     }
 
     /**

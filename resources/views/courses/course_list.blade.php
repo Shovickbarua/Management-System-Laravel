@@ -29,6 +29,7 @@
 							<td>{{ $course->dep_name }}</td>
 							<td>{{ $course->course_code }}</td>
 							<td>
+								<div class="d-flex">
                                     <a href="{{route('course.edit', $course->id)}}" class="btn shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
 
                                     <form action="{{route('course.destroy',$course->id)}}" method="POST">
@@ -36,6 +37,7 @@
                                     @csrf
                                     <button type="submit" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></button>
                                     </form>
+								</div>
                                 </td>
 						  </tr>
 						  @endforeach

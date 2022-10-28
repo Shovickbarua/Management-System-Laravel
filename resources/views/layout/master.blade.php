@@ -269,13 +269,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{route('addMarks.create')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add Marks</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{route('result.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Student Result</p>
                 </a>
@@ -352,5 +352,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{asset('/')}}plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('/')}}dist/js/adminlte.min.js"></script>
+@yield('scripts')
 </body>
 </html>

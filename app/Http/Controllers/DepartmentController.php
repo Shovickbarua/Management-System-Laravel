@@ -79,7 +79,7 @@ class DepartmentController extends Controller
      * @param  \App\Models\department  $department
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, department $department, $id)
+    public function update(Request $request, $id)
     {
         $department = Department::find($id);
         $department->dep_name = $request->dep_name;

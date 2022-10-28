@@ -28,7 +28,14 @@
 							@foreach($students as $student)
 								<tr>
 									<td>{{$loop->iteration}}</td>
-									<td>{{$department->dep_name}}</td>
+									<td>{{$student->stuName}}</td>
+									<td>{{$student->stu_id}}</td>
+									<td>{{$student->year_name}}</td>
+									<td>{{$student->dep_name}}</td>
+									<td>{{$student->sem_name}}</td>
+									<td><img src="{{Storage::url('app/students/'. $student->image)}} " style="height:150px;"/></td>
+									<td><a href="{{route('student_des', $student->id)}}" class="btn btn-danger btn-sm"><i class="fa fa-file-pdf"></i></a></td>
+									<td><a href="{{route('student_view', $student->stu_id)}}" class="btn btn-danger btn-sm">view</a></td>
 								</tr>
 							@endforeach
 						  </tbody>
